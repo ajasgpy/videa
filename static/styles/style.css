@@ -1,0 +1,951 @@
+/* Estilos gerais da página */
+body {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+/* Container principal */
+.container {
+    max-width: 900px;
+    padding: 2rem;
+}
+
+/* Cabeçalho */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+}
+
+.header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+    background: linear-gradient(
+        45deg,
+        #0d6efd 0%,      /* Azul Bootstrap - início */
+        #4287f5 20%,     /* Azul mais claro */
+        #6ea8fe 40%,     /* Azul ainda mais claro */
+        #90c2ff 50%,     /* Ponto mais claro no centro */
+        #6ea8fe 60%,     /* Voltando para azul claro */
+        #4287f5 80%,     /* Azul médio */
+        #0d6efd 100%     /* Azul Bootstrap - fim */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    letter-spacing: -0.5px;
+    transition: all 0.3s ease;
+}
+
+.header .subtitle {
+    color: var(--bs-body-color);  /* Será branco no tema escuro e escuro no tema claro */
+    font-size: 1.4rem;           /* Aumentado de 1.2rem para 1.4rem */
+    line-height: 1.6;
+    max-width: 700px;            /* Aumentado para acomodar o texto maior */
+    margin: 0 auto;
+    font-weight: 400;            /* Peso da fonte ajustado */
+    opacity: 0.9;                /* Suave transparência */
+    padding: 0.5rem 1rem;        /* Espaçamento interno */
+}
+
+/* Tema escuro */
+[data-bs-theme="dark"] .header h1 {
+    background: linear-gradient(
+        45deg,
+        #0d6efd 0%,      /* Azul Bootstrap - início */
+        #4287f5 20%,     /* Azul mais claro */
+        #6ea8fe 40%,     /* Azul ainda mais claro */
+        #a8d1ff 50%,     /* Ponto mais claro no centro */
+        #6ea8fe 60%,     /* Voltando para azul claro */
+        #4287f5 80%,     /* Azul médio */
+        #0d6efd 100%     /* Azul Bootstrap - fim */
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* Tema escuro */
+[data-bs-theme="dark"] .header .subtitle {
+    color: #ffffff;              /* Branco puro no tema escuro */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);  /* Sombra sutil */
+}
+
+/* Ajuste responsivo */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.8rem;
+    }
+    .header .subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 2.3rem;
+    }
+    .header .subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+/* Formulário */
+.form-container {
+    background: var(--bs-body-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 0.8rem;
+    border: 1px solid var(--bs-border-color);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
+
+/* Botões */
+.btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    box-shadow: 0 4px 6px rgba(13, 110, 253, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(13, 110, 253, 0.3);
+}
+
+.btn-secondary {
+    box-shadow: 0 4px 6px rgba(108, 117, 125, 0.2);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(108, 117, 125, 0.3);
+}
+
+/* Upload de arquivo */
+.file-upload {
+    position: relative;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.file-upload .form-control {
+    display: none;
+}
+
+.file-upload-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+    background: linear-gradient(
+        45deg,
+        #0d6efd 0%,
+        #4287f5 50%,
+        #0d6efd 100%
+    );
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.2);
+    min-width: 200px;
+}
+
+.file-upload-label:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.3);
+}
+
+.file-upload-label:active {
+    transform: translateY(1px);
+}
+
+.file-upload-label i {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+/* Tema escuro */
+[data-bs-theme="dark"] .file-upload-label {
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
+}
+
+[data-bs-theme="dark"] .file-upload-label:hover {
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.5);
+}
+
+/* Campos de texto */
+textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Espaçamento entre seções */
+.mb-3 {
+    margin-bottom: 1.5rem !important;
+}
+
+/* Tema escuro */
+[data-bs-theme="dark"] .form-container {
+    background: var(--bs-dark);
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+[data-bs-theme="dark"] .form-control {
+    background-color: var(--bs-dark);
+    border-color: var(--bs-border-color);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .header {
+        margin-bottom: 2rem;
+        padding: 1rem 0;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .form-container {
+        padding: 1.5rem;
+    }
+}
+
+/* Estilos gerais */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.theme-toggle-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle-btn i {
+    font-size: 1.5rem;
+}
+
+/* Dark theme specific styles */
+[data-bs-theme="dark"] {
+    background-color: #212529;
+    color: #f8f9fa;
+}
+
+[data-bs-theme="dark"] .card {
+    background-color: #2b3035;
+    border-color: #373b3e;
+}
+
+[data-bs-theme="dark"] .form-control,
+[data-bs-theme="dark"] .form-select {
+    background-color: #2b3035;
+    border-color: #373b3e;
+    color: #f8f9fa;
+}
+
+/* Transitions */
+body,
+.card,
+.form-control,
+.form-select,
+.btn {
+    transition: all 0.3s ease;
+}
+
+/* Progress Bar */
+#progress-container {
+    display: none;
+    margin: 20px 0;
+}
+
+.progress {
+    height: 25px;
+}
+
+#loading-message {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Video Container */
+.video-container {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Cards */
+.card {
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+/* Actions */
+.actions {
+    margin: 20px 0;
+}
+
+.actions .btn {
+    margin: 0 5px;
+}
+
+/* Form Elements */
+.form-control, .form-select {
+    margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .theme-toggle-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .video-container {
+        width: 95%;
+    }
+} 
+
+/* Adicionar ao seu CSS existente */
+.fade-transition {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+} 
+
+/* Melhorar hover dos botões */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.btn:hover:after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+} 
+
+/* Adicionar breakpoints */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .card {
+        margin: 10px 0;
+    }
+    
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .video-container {
+        margin: 10px 0;
+    }
+} 
+
+/* Estilo para estados de loading */
+.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.loading:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+} 
+
+/* Personalizar scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bs-body-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bs-primary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bs-primary-dark);
+}
+
+/* Adicionar ao seu CSS existente */
+.suggestions-container p {
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.suggestions-container p:hover {
+    background-color: var(--bs-light);
+    cursor: pointer;
+}
+
+[data-bs-theme="dark"] .suggestions-container p:hover {
+    background-color: var(--bs-dark);
+}
+
+.modal-content {
+    border-radius: 15px;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Estilos para sugestões */
+.suggestions-container {
+    padding: 10px;
+}
+
+.suggestion-line {
+    padding: 12px;
+    margin: 6px 0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-left: 4px solid transparent;
+}
+
+.suggestion-line:hover {
+    background-color: rgba(13, 110, 253, 0.1);
+    transform: translateX(5px);
+}
+
+.suggestion-line.selected {
+    background-color: rgba(25, 135, 84, 0.1);
+    border-left-color: #198754;
+}
+
+.suggestion-line.clicked {
+    animation: selectPulse 0.5s ease;
+}
+
+@keyframes selectPulse {
+    0% { background-color: rgba(25, 135, 84, 0.3); }
+    100% { background-color: rgba(25, 135, 84, 0.1); }
+}
+
+/* Tema escuro */
+[data-bs-theme="dark"] .suggestion-line:hover {
+    background-color: rgba(13, 110, 253, 0.2);
+}
+
+[data-bs-theme="dark"] .suggestion-line.selected {
+    background-color: rgba(25, 135, 84, 0.2);
+}
+
+/* Estilos específicos para o modal de sugestões */
+#suggestionsModal .suggestion-line {
+    padding: 12px;
+    margin: 6px 0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-left: 4px solid transparent;
+}
+
+#suggestionsModal .suggestion-line:hover {
+    background-color: rgba(13, 110, 253, 0.1);
+    transform: translateX(5px);
+}
+
+#suggestionsModal .suggestion-line.selected {
+    background-color: rgba(25, 135, 84, 0.1);
+    border-left-color: #198754;
+}
+
+/* Tema escuro para o modal */
+[data-bs-theme="dark"] #suggestionsModal .suggestion-line:hover {
+    background-color: rgba(13, 110, 253, 0.2);
+}
+
+[data-bs-theme="dark"] #suggestionsModal .suggestion-line.selected {
+    background-color: rgba(25, 135, 84, 0.2);
+}
+
+/* Melhorias visuais para o modal */
+#suggestionsModal .modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+#suggestionsModal .modal-header {
+    border-bottom: 1px solid var(--bs-border-color);
+    padding: 1.5rem;
+}
+
+#suggestionsModal .modal-body {
+    padding: 1.5rem;
+}
+
+#suggestionsModal .modal-title {
+    font-weight: 600;
+}
+
+/* Animações para as sugestões */
+#suggestionsModal .suggestion-line {
+    opacity: 0;
+    transform: translateX(-10px);
+    animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Delay progressivo para cada sugestão */
+#suggestionsModal .suggestion-line:nth-child(1) { animation-delay: 0.1s; }
+#suggestionsModal .suggestion-line:nth-child(2) { animation-delay: 0.2s; }
+#suggestionsModal .suggestion-line:nth-child(3) { animation-delay: 0.3s; }
+
+function selectSuggestion(element) {
+    const text = element.textContent;
+    const type = text.includes('Título:') ? 'titulo' : 'descricao';
+    
+    // Remover seleção anterior
+    document.querySelectorAll('.suggestion-line').forEach(el => {
+        if ((type === 'titulo' && el.textContent.includes('Título:')) ||
+            (type === 'descricao' && el.textContent.includes('Descrição:'))) {
+            el.classList.remove('selected');
+        }
+    });
+    
+    // Adicionar seleção atual
+    element.classList.add('selected');
+    
+    // Atualizar input
+    if (type === 'titulo') {
+        document.getElementById('title').value = text.replace('Título:', '').trim();
+    } else {
+        document.getElementById('description').value = text.replace('Descrição:', '').trim();
+    }
+}
+
+/* Estilos da página de resultados */
+.result-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.video-wrapper {
+    background: var(--bs-dark);
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    margin: 0 auto;
+}
+
+.video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.error-container {
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 1rem;
+}
+
+.action-buttons .btn {
+    min-width: 160px;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    background: linear-gradient(45deg, var(--bs-primary), var(--bs-primary-dark, #0056b3));
+    border: none;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .result-container {
+        margin: 1rem auto;
+    }
+
+    .action-buttons .btn {
+        min-width: 140px;
+        margin-bottom: 0.5rem;
+    }
+
+    .video-wrapper {
+        aspect-ratio: 16/9;  /* ou ajuste conforme necessário para mobile */
+    }
+}
+
+/* Dark mode ajustes */
+[data-bs-theme="dark"] .video-wrapper {
+    background: var(--bs-black);
+}
+
+[data-bs-theme="dark"] .download-btn {
+    background: linear-gradient(45deg, var(--bs-primary), #004080);
+}
+
+/* Estilos para o botão de tema */
+.theme-switch .btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.theme-switch .btn:hover {
+    transform: rotate(15deg);
+}
+
+.theme-switch .btn i {
+    font-size: 1.2rem;
+}
+
+/* Animação suave na troca de tema */
+html {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ajuste para o tema escuro */
+[data-bs-theme="dark"] .theme-switch .btn {
+    border-color: var(--bs-light);
+    color: var(--bs-light);
+}
+
+/* Estilo para os botões de ação */
+.action-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.action-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    min-width: 180px;
+    border: none;
+}
+
+.action-button i {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+/* Botão de sugestões */
+.btn-suggestions {
+    background: linear-gradient(45deg, #6c757d, #495057);
+    color: white;
+    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.2);
+}
+
+.btn-suggestions:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(108, 117, 125, 0.3);
+    color: white;
+}
+
+/* Botão de processar */
+.btn-process {
+    background: linear-gradient(45deg, #0d6efd, #4287f5);
+    color: white;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.2);
+}
+
+.btn-process:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.3);
+    color: white;
+}
+
+/* Tema escuro */
+[data-bs-theme="dark"] .btn-suggestions {
+    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.4);
+}
+
+[data-bs-theme="dark"] .btn-process {
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .action-buttons-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .action-button {
+        width: 100%;
+        max-width: 300px;
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Estilo para o texto do arquivo selecionado */
+.file-name {
+    font-size: 0.95rem;
+    color: var(--bs-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 150px;
+}
+
+.file-name i {
+    font-size: 0.9rem;
+}
+
+/* Estilo quando um arquivo é selecionado */
+.file-name.file-selected {
+    color: var(--bs-success);
+    font-weight: 500;
+    background-color: rgba(25, 135, 84, 0.1);
+}
+
+/* Tema escuro */
+[data-bs-theme="dark"] .file-name {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Animação suave na troca de texto */
+.file-name {
+    position: relative;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.file-name.file-selected {
+    background-color: rgba(25, 135, 84, 0.1);
+}
+
+/* Tema escuro */
+[data-bs-theme="dark"] .file-name.file-selected {
+    background-color: rgba(25, 135, 84, 0.2);
+    color: #98ff98;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .file-upload {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .file-name {
+        justify-content: center;
+    }
+}
+
+/* Estilos dos botões compartilhados */
+.btn {
+    border-radius: 50px !important;  /* Força o arredondamento em todos os botões */
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Estilos específicos para a página de resultado */
+.result-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.action-buttons {
+    margin-top: 2rem;
+}
+
+.action-buttons .btn {
+    min-width: 160px;
+    font-weight: 500;
+    margin: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.download-btn {
+    background: var(--bs-primary);
+    border: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Ajuste para o botão de novo vídeo */
+.btn-outline-secondary {
+    border: 2px solid var(--bs-secondary);
+    background: transparent;
+}
+
+.btn-outline-secondary:hover {
+    background: var(--bs-secondary);
+    color: var(--bs-white);
+    transform: translateY(-2px);
+}
+
+/* Ajuste dos ícones nos botões */
+.btn i {
+    font-size: 1.1em;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .action-buttons .btn {
+        min-width: 140px;
+        padding: 0.5rem 1.25rem;
+    }
+}
+
+/* Dark mode ajustes */
+[data-bs-theme="dark"] .btn-outline-secondary {
+    border-color: var(--bs-gray-500);
+    color: var(--bs-gray-300);
+}
+
+[data-bs-theme="dark"] .btn-outline-secondary:hover {
+    background: var(--bs-gray-500);
+    color: var(--bs-white);
+}
